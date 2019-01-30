@@ -10,12 +10,12 @@ namespace JournalLibrary
 {
     public class Access
     {
-        static string connection = "Data Source=DESKTOP-2PSBHKH\\SQLEXPRESS;Initial Catalog = JournalWebsite; Integrated Security = True";
+        static string connection = "Data Source=DESKTOP-DJU5C3P\\SQLEXPRESS;Initial Catalog=Journal website;Integrated Security=True";
         static SqlConnection JournalWebsite = new SqlConnection(connection);
 
         public static bool login(string username, string password)
         {
-            string SELECT = $"SELECT [User Name], [Password] FROM [User] WHERE [User Name] = '{username}' AND [Password] = '{password}'";
+            string SELECT = $"SELECT [UserName], [Password] FROM [User] WHERE [UserName] = '{username}' AND [Password] = '{password}'";
 
             SqlDataAdapter log = new SqlDataAdapter(SELECT, JournalWebsite);
 
@@ -35,8 +35,8 @@ namespace JournalLibrary
 
         public bool register(string username, string password)
         {
-            string SELECT = $"SELECT [User Name] FROM [User] WHERE [User Name] = '{username}'";
-            string ADD = $"INSERT INTO[User] ([User Name], [Password]) VALUES(@username, @pass)";
+            string SELECT = $"SELECT [UserName] FROM [User] WHERE [UserName] = '{username}'";
+            string ADD = $"INSERT INTO[User] ([UserName], [Password]) VALUES(@username, @pass)";
 
             SqlDataAdapter reg = new SqlDataAdapter(SELECT, JournalWebsite);
 
