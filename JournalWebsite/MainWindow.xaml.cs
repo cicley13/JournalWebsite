@@ -29,29 +29,11 @@ namespace JournalWebsite
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            Access log = new Access();
-            bool validation;
-
-            validation = log.login(Ubox.Text.Trim(), Pbox.Text.Trim());
-
-            if (validation == true)
-            {
-                MessageBox.Show("Next Step");
-
-            }
-            else
-            {
-                Invalid.Foreground.Opacity = 100;
-            }
-
+    
         }
 
         private void RegButton_Click(object sender, RoutedEventArgs e)
-        {
-            Access log = new Access();
-
-            log.register(Ubox.Text.Trim(), Pbox.Text.Trim());
-
+        {        
         }
     }
 }
