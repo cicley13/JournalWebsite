@@ -26,10 +26,17 @@
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="REGISTER" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Register" FontSize="60" Margin="26,6,24,0" Grid.Column="1"/>
-        <TextBlock x:Name="UserName" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter New Username" FontSize="20" Margin="26,0,39,10" Grid.Column="1" Grid.Row="2" Width="199"/>
-        <TextBlock x:Name="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter New Password" FontSize="20" Margin="26,10,39,11" Grid.Row="4" Grid.Column="1" Width="199" />
-        <TextBlock x:Name="Invalid" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Invalid Username or Password" FontSize="15" Margin="27,2,39,9" Grid.Column="1" Grid.Row="1">
+        <TextBlock x:Name="UserName" HorizontalAlignment="Center" VerticalAlignment="Center" Text="New Username" FontSize="20"  Grid.Column="1" Grid.Row="2" Width="144" />
+        <TextBlock x:Name="Password" HorizontalAlignment="Center" VerticalAlignment="Center" Text="New Password" FontSize="20"  Grid.Row="4" Grid.Column="1" Width="132"  />
+        <TextBlock x:Name="TAKEN" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Taken Username" FontSize="15" Margin="27,2,39,9" Grid.Column="1" Grid.Row="1">
             <TextBlock.Foreground>
+                <!--Opacity is 0 because we do not want it to show. Try putting it at 100. The red will pop up. We change it to 100 using c#.-->
+                <SolidColorBrush Color="Red" Opacity="0"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <TextBlock x:Name="NoPass" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter Password or Username" FontSize="15" Margin="27,2,39,9" Grid.Column="1" Grid.Row="1">
+            <TextBlock.Foreground>
+                <!--Opacity is 0 because we do not want it to show. Try putting it at 100. The red will pop up. We change it to 100 using c#.-->
                 <SolidColorBrush Color="Red" Opacity="0"/>
             </TextBlock.Foreground>
         </TextBlock>
@@ -37,7 +44,11 @@
         <TextBox x:Name="Ubox" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Width="266" Height="63" Grid.Column="1" Grid.Row="3"/>
         <TextBox x:Name="Pbox" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Width="266" Height="70" Grid.Row="5" Grid.Column="1"/>
 
-        <Button x:Name="RegButton" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Register" FontSize="50" Margin="43,10,0,16"/>
-
+        <Button x:Name="RegButton" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Register" FontSize="50" Margin="43,10,0,16" Click="RegButton_Click"/>
+        
+        <!--A frame is needed to change between pages. The binding means that it will be bounded by using c# code. In another words, use c# in 
+        the other page to assign it. The frame must cover the whole window, like a frame. Make it hidden to make it look nice I guess.-->
+        <Frame x:Name="registernav" Source ="{Binding}" HorizontalAlignment="Left" Height="450" Grid.RowSpan="7" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+        
     </Grid>
 </Page>
