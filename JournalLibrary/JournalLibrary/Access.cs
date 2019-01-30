@@ -11,9 +11,9 @@ namespace JournalLibrary
     public class Access
     {
         static string connection = "Data Source=DESKTOP-2PSBHKH\\SQLEXPRESS;Initial Catalog = JournalWebsite; Integrated Security = True";
-        SqlConnection JournalWebsite = new SqlConnection(connection);
+        static SqlConnection JournalWebsite = new SqlConnection(connection);
 
-        public bool login(string username, string password)
+        public static bool login(string username, string password)
         {
             string SELECT = $"SELECT [User Name], [Password] FROM [User] WHERE [User Name] = '{username}' AND [Password] = '{password}'";
 

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using JournalLibrary;
 
 namespace JournalWebsite
 {
@@ -29,6 +30,7 @@ namespace JournalWebsite
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
+            bool result = 
     
         }
 
