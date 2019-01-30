@@ -15,7 +15,8 @@ namespace JournalLibrary
 
         public void Stack()
         {
-
+            string sa = $"SELECT [Title] FROM [Journal entries]";
+            SqlDataAdapter log = new SqlDataAdapter(sa, JournalWebsite);
         }
     }
 }
