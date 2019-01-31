@@ -13,10 +13,28 @@ namespace JournalLibrary
         static string connection = "Data Source=DESKTOP-DJU5C3P\\SQLEXPRESS;Initial Catalog=Journal website;Integrated Security=True";
         static SqlConnection JournalWebsite = new SqlConnection(connection);
 
-        public void Stack()
+        public void Stack(object sender)
         {
-            string sa = $"SELECT [Title] FROM [Journal entries]";
-            SqlDataAdapter log = new SqlDataAdapter(sa, JournalWebsite);
+            JournalWebsite.Open();
+            // Calling the Stored Procedure
+            
+            
+            SqlDataAdapter da = new SqlDataAdapter("select Titles from Journal Entries", connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Titles");
+            Titles.ItemsSource = ds.Tables[Titles].DefaultView;
+
+            JournalWebsite.Close();
         }
-    }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                
+            }
+
+        }
+
 }
