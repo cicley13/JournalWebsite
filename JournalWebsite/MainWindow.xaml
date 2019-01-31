@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:JournalWebsite"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="layout">
+
+    <Grid x:Name="layout" Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -22,13 +23,13 @@
             <RowDefinition Height="66*"/>
             <RowDefinition Height="98*"/>
         </Grid.RowDefinitions>
-
         <TextBlock x:Name="LOGIN" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Welcome" FontSize="60"/>
         <TextBlock x:Name="UserName" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter Username" FontSize="20" />
         <TextBlock x:Name="Password" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Enter Password" FontSize="20" />
         <TextBlock x:Name="Or" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Text="OR" FontSize="40"/>
         <TextBlock x:Name="Invalid" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Invalid Username or Password" FontSize="15">
             <TextBlock.Foreground>
+                <!--Opacity is 0 because we do not want it to show. Try putting it at 100. The red will pop up. We change it to 100 using c#.-->
                 <SolidColorBrush Color="Red" Opacity="0"/>
             </TextBlock.Foreground>
         </TextBlock>
@@ -37,7 +38,12 @@
         <TextBox x:Name="Pbox" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Width="250" Height="50"/>
 
         <Button x:Name="LogButton" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Log In" FontSize="50" Click="LogButton_Click"/>
-        <Button x:Name="RegButton" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Register" FontSize="50" Click="RegButton_Click" />
-        
+        <Button x:Name="RegButton" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Register" FontSize="50" Click="RegButton_Click"/>
+
+        <!--A frame is needed to change between pages. The binding means that it will be bounded by using c# code. In another words, use c# in 
+        the other page to assign it. The frame must cover the whole window, like a frame. Make it hidden to make it look nice I guess.-->
+        <Frame x:Name="windownav" Source ="{Binding}" HorizontalAlignment="Left" Height="450" Grid.RowSpan="7" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+
     </Grid>
+
 </Window>
